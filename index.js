@@ -1,17 +1,9 @@
-let user = {
-    get name() {
-        return this._name
-    },
-    set name(value) {
-        if (value.length < 4) {
-            alert (`too short user name please make another`)
-            return false
-        } else {
-            alert(`${this._name = value} all good`)
-            return true
-        }
+Function.prototype.defers = function (ms) {
+    (...args) => {
+        setTimeout(() => {
+            this.apply(this, args)
+        }, ms)
     }
 }
-while (!user.name) {
-    user.name = prompt('Enter name')
-}
+
+
