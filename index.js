@@ -1,12 +1,17 @@
 let user = {
-    set fullName(value) {
-        [this.name, this.surname] = value.split(' ')
+    get name() {
+        return this._name
     },
-    get fullName() {
-        return `${this.name} ${this.surname}`
+    set name(value) {
+        if (value.length < 4) {
+            alert (`too short user name please make another`)
+            return false
+        } else {
+            alert(`${this._name = value} all good`)
+            return true
+        }
     }
 }
-
-user.fullName = 'Max Million'
-let aFullName = user.fullName
-console.log(aFullName);
+while (!user.name) {
+    user.name = prompt('Enter name')
+}
